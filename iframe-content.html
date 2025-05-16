@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iFrame Content</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .message-box {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+            min-height: 50px;
+        }
+        button {
+            background-color: #1976d2;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        button:hover {
+            background-color: #1565c0;
+        }
+        input {
+            padding: 8px;
+            margin-right: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>iFrame Content</h2>
+        <div class="message-box" id="messageBox">
+            No messages received yet
+        </div>
+        <div>
+            <input type="text" id="messageInput" placeholder="Type a message..." data-cy="iframe-message-input">
+            <button onclick="sendMessage()" data-cy="iframe-send-btn">Send to Parent</button>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('message', function(event) {
+            const messageBox = document.getElementById('messageBox');
+            messageBox.textContent = 'Received: ' + event.data;
+        });
+
+        function sendMessage() {
+            const input = document.getElementById('messageInput');
+            const message = input.value;
+            if (message) {
+                window.parent.postMessage(message, '*');
+                input.value = '';
+            }
+        }
+
+        // Also send on Enter key
+        document.getElementById('messageInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+    </script>
+</body>
+</html> 

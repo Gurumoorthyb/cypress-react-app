@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/cypress-react-app/static/css/main.07f71a24.css",
+    "main.js": "/cypress-react-app/static/js/main.1624474c.js",
+    "static/js/453.68693753.chunk.js": "/cypress-react-app/static/js/453.68693753.chunk.js",
+    "index.html": "/cypress-react-app/index.html",
+    "main.07f71a24.css.map": "/cypress-react-app/static/css/main.07f71a24.css.map",
+    "main.1624474c.js.map": "/cypress-react-app/static/js/main.1624474c.js.map",
+    "453.68693753.chunk.js.map": "/cypress-react-app/static/js/453.68693753.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.07f71a24.css",
+    "static/js/main.1624474c.js"
+  ]
+}
