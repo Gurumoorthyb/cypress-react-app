@@ -1,4 +1,5 @@
-# Getting Started with Create React App
+# cypress-react-app
+About cypress automation end 2 end 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
