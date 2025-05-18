@@ -1,6 +1,6 @@
 describe('Forms Tests', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/forms');
+    cy.visit('/forms');
   });
 
   it('should show validation errors for empty required fields', () => {

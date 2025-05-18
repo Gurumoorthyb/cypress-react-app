@@ -1,6 +1,6 @@
 describe('File Handling Tests', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/file-handling');
+    cy.visit('/file-handling');
   });
 
   it('should display file upload components', () => {

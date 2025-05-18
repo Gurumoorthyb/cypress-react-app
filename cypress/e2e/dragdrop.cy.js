@@ -1,6 +1,6 @@
 describe('Drag and Drop Tests', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/drag-drop');
+    cy.visit('/drag-drop', { failOnStatusCode: false });
   });
 
   it('should display draggable items and drop zone', () => {

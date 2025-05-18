@@ -1,6 +1,6 @@
 describe('API Tests', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/api-tests');
+    cy.visit('/api-tests');
 
     // Intercept API calls
     cy.intercept('GET', 'https://jsonplaceholder.typicode.com/posts*').as('getPosts');

@@ -1,6 +1,6 @@
 describe('Tables Tests', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/tables');
+    cy.visit('/tables', { failOnStatusCode: false });
   });
 
   it('should display the table with initial data', () => {

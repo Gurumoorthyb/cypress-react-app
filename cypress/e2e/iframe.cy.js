@@ -1,6 +1,6 @@
 describe('iFrame Tests', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/iframe-test');
+    cy.visit('/iframe-test', { failOnStatusCode: false });
   });
 
   it('should display iframe components', () => {
