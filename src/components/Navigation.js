@@ -14,6 +14,7 @@ import {
   ListItemText,
   Box,
   Container,
+  ListItemIcon,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import HomeIcon from '@mui/icons-material/Home';
@@ -45,7 +46,7 @@ const Navigation = () => {
   };
 
   const drawer = (
-    <List>
+    <List sx={{ pt: 2 }}>
       {navItems.map((item) => (
         <ListItem
           button
@@ -57,32 +58,55 @@ const Navigation = () => {
           sx={{
             borderRadius: 2,
             m: 1,
-            '&.Mui-selected': {
-              backgroundColor: 'primary.light',
-              color: 'primary.contrastText',
+            background: location.pathname === item.path ? 'rgba(0, 180, 216, 0.1)' : 'transparent',
+            '&:hover': {
+              background: 'rgba(0, 180, 216, 0.05)',
             },
           }}
         >
-          {item.icon}
-          <ListItemText primary={item.text} sx={{ ml: 2 }} />
+          <ListItemIcon sx={{ 
+            color: location.pathname === item.path ? '#00b4d8' : 'inherit',
+            minWidth: 40 
+          }}>
+            {item.icon}
+          </ListItemIcon>
+          <ListItemText 
+            primary={item.text} 
+            sx={{ 
+              color: location.pathname === item.path ? '#00b4d8' : 'inherit'
+            }} 
+          />
         </ListItem>
       ))}
     </List>
   );
 
   return (
-    <AppBar position="sticky" color="inherit" data-cy="main-nav">
+    <AppBar 
+      position="sticky" 
+      color="inherit" 
+      data-cy="main-nav"
+      sx={{
+        background: 'rgba(10, 25, 41, 0.8)',
+        backdropFilter: 'blur(20px)',
+        borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
+      }}
+    >
       <Container maxWidth="xl">
-        <Toolbar disableGutters>
+        <Toolbar disableGutters sx={{ py: 1 }}>
           <Typography
             variant="h6"
-            component="div"
+            component={Link}
+            to="/"
             sx={{
               flexGrow: 1,
-              fontWeight: 600,
-              background: 'linear-gradient(45deg, #2196F3 30%, #21CBF3 90%)',
+              fontWeight: 700,
+              fontSize: { xs: '1.2rem', md: '1.5rem' },
+              background: 'linear-gradient(45deg, #00b4d8 30%, #48cae4 90%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
+              textDecoration: 'none',
+              letterSpacing: 1,
             }}
           >
             Cypress Test App
@@ -95,7 +119,13 @@ const Navigation = () => {
                 aria-label="open drawer"
                 edge="start"
                 onClick={handleDrawerToggle}
-                sx={{ display: { md: 'none' } }}
+                sx={{ 
+                  display: { md: 'none' },
+                  background: 'rgba(255, 255, 255, 0.05)',
+                  '&:hover': {
+                    background: 'rgba(255, 255, 255, 0.1)',
+                  }
+                }}
               >
                 <MenuIcon />
               </IconButton>
@@ -107,14 +137,19 @@ const Navigation = () => {
                 ModalProps={{ keepMounted: true }}
                 sx={{
                   display: { xs: 'block', md: 'none' },
-                  '& .MuiDrawer-paper': { boxSizing: 'border-box', width: 240 },
+                  '& .MuiDrawer-paper': { 
+                    boxSizing: 'border-box', 
+                    width: 280,
+                    background: 'rgba(10, 25, 41, 0.95)',
+                    backdropFilter: 'blur(20px)',
+                  },
                 }}
               >
                 {drawer}
               </Drawer>
             </>
           ) : (
-            <Box sx={{ display: 'flex', gap: 1 }}>
+            <Box sx={{ display: 'flex', gap: 0.5 }}>
               {navItems.map((item) => (
                 <Button
                   key={item.text}
@@ -124,7 +159,10 @@ const Navigation = () => {
                   data-cy={`nav-${item.text.toLowerCase()}`}
                   startIcon={item.icon}
                   sx={{
+                    px: 2,
+                    py: 1,
                     position: 'relative',
+                    color: location.pathname === item.path ? '#00b4d8' : 'inherit',
                     '&::after': {
                       content: '""',
                       position: 'absolute',
@@ -132,11 +170,14 @@ const Navigation = () => {
                       height: '2px',
                       bottom: 0,
                       left: 0,
-                      backgroundColor: 'primary.main',
+                      background: 'linear-gradient(90deg, #00b4d8, #48cae4)',
                       transition: 'width 0.3s ease-in-out',
                     },
-                    '&:hover::after': {
-                      width: '100%',
+                    '&:hover': {
+                      background: 'rgba(255, 255, 255, 0.05)',
+                      '&::after': {
+                        width: '100%',
+                      },
                     },
                   }}
                 >
