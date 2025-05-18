@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/cypress-react-app/static/css/main.07f71a24.css",
-    "main.js": "/cypress-react-app/static/js/main.1624474c.js",
+    "main.css": "/cypress-react-app/static/css/main.c0d9d44f.css",
+    "main.js": "/cypress-react-app/static/js/main.9a70ee72.js",
     "static/js/453.68693753.chunk.js": "/cypress-react-app/static/js/453.68693753.chunk.js",
     "index.html": "/cypress-react-app/index.html",
-    "main.07f71a24.css.map": "/cypress-react-app/static/css/main.07f71a24.css.map",
-    "main.1624474c.js.map": "/cypress-react-app/static/js/main.1624474c.js.map",
+    "main.c0d9d44f.css.map": "/cypress-react-app/static/css/main.c0d9d44f.css.map",
+    "main.9a70ee72.js.map": "/cypress-react-app/static/js/main.9a70ee72.js.map",
     "453.68693753.chunk.js.map": "/cypress-react-app/static/js/453.68693753.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.07f71a24.css",
-    "static/js/main.1624474c.js"
+    "static/css/main.c0d9d44f.css",
+    "static/js/main.9a70ee72.js"
   ]
 }
